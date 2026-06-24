@@ -1,0 +1,208 @@
+/* ── Contenedor principal ──
+   La navbar es position:absolute, no ocupa espacio en el flujo.
+   Necesitamos padding-top para que el contenido no quede debajo de ella.
+   Navbar mide ~70px en desktop y ~60px en mobile.
+   Usamos padding generoso arriba para que respire bien.
+── */
+.docente-container {
+  padding: 100px 2rem 4rem;
+}
+
+/* ── Tabla ── */
+.table-card {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.table thead {
+  background-color: white;
+  border-bottom: 2px solid var(--color-verde1);
+}
+
+.table th {
+  color: var(--color-gris);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 15px;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 12px 15px;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.badge-category {
+  background-color: var(--color-verde-pastel);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 13px;
+}
+
+/* ── Acciones ── */
+.btn-actions-desktop {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-actions-tablet {
+  display: none;
+}
+
+/* ── Toggle tabla / cards ── */
+.d-none-mobile  { display: block; }
+.d-block-mobile { display: none;  }
+
+
+/* ════════════════════════════════════════
+   TABLET  576px – 991px
+════════════════════════════════════════ */
+@media (max-width: 991px) and (min-width: 576px) {
+
+  .docente-container {
+    padding: 90px 1.25rem 3rem;
+  }
+
+  .d-none-tablet { display: none !important; }
+
+  .btn-actions-desktop { display: none; }
+
+  .btn-actions-tablet {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .btn-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 0;
+  }
+  .btn-icon:hover   { transform: scale(1.1); }
+  .icon-edit        { background-color: var(--color-verde-pastel); }
+  .icon-delete      { background-color: var(--color-salmon); }
+
+  .tablet-icon-img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+  }
+}
+
+
+/* ════════════════════════════════════════
+   MOBILE  ≤ 575px
+════════════════════════════════════════ */
+@media (max-width: 575px) {
+
+  .docente-container {
+    padding: 80px 1rem 3rem;
+  }
+
+  /* header apila verticalmente */
+  .list-header {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px;
+    min-height: auto !important;
+  }
+
+  .btn-add-main {
+    width: 100% !important;
+    min-width: unset !important;
+  }
+
+  /* Ocultar tabla, mostrar cards */
+  .d-none-mobile  { display: none  !important; }
+  .d-block-mobile {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-bottom: 20px;
+  }
+
+  /* ── Cards mobile ── */
+  .plant-mobile-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 16px;
+  }
+
+  .card-content h3 {
+    color: var(--color-verde1);
+    font-size: 1.3rem;
+    margin-bottom: 2px;
+  }
+
+  .scientific-name {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 4px;
+  }
+
+  .category-name {
+    font-size: 0.85rem;
+    color: var(--color-gris);
+    margin-bottom: 4px;
+  }
+
+  .description-mobile {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 14px;
+    font-size: 0.85rem;
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .card-actions .btn {
+    flex: 1;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  .content-empty-mobile {
+    border-radius: 20px;
+    padding: 2rem;
+  }
+}

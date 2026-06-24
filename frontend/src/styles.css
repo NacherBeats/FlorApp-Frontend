@@ -1,0 +1,162 @@
+/* 1. Evitar saltos de scroll */
+html {
+  overflow-y: scroll;
+}
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-amarillo: #f0c017;
+  --color-celeste: #6ecbf5;
+  --color-violeta: #9b6ef3;
+  --color-naranja: #f08a4b;
+  --color-verde1: #3d8a2e;
+  --color-verde2: #61b045;
+  --color-fondo: #edf2eb;
+  --color-salmon: #f4d3bb;
+  --color-salmon-claro: #f3eae4;
+  --color-violeta-pastel: #decffb;
+  --color-verde-pastel: #cae5c1;
+  --color-amarillo-pastel: #fae9af;
+  --color-celeste-pastel: #B7E5FA;
+  --color-gris: #8c8f94;
+
+  --font-general: 'Montserrat', sans-serif;
+  --font-titulos: 'Grandstander', cursive;
+}
+
+body {
+  font-family: var(--font-general);
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-titulos);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.btn {
+  display: inline-flex;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 10px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.btn-verde {
+  background-color: var(--color-verde1);
+}
+
+.btn-verde:hover {
+  background-color: var(--color-verde1);
+  color: white;
+}
+
+.btn-cancelar{
+  display: inline-flex;
+  color: var(--color-gris);
+  padding: 5px 15px;
+  border: solid 1px var(--color-gris);
+  border-radius: 10px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.etiqueta {
+  border: none !important;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  color: black;
+  cursor: pointer;
+}
+
+.etiqueta.active {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+  font-weight: 700;
+  outline: none !important;
+}
+
+.etiqueta-verde {
+  background-color: var(--color-verde-pastel);
+}
+.etiqueta-salmon {
+  background-color: var(--color-salmon);
+}
+.etiqueta-violeta {
+  background-color: var(--color-violeta-pastel);
+}
+.etiqueta-amarilla {
+  background-color: var(--color-amarillo-pastel);
+}
+.etiqueta-gris {
+  background-color: #e0e0e0 !important;
+}
+.etiqueta-celeste {
+  background-color: var(--color-celeste-pastel) !important;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinea al tope para que los títulos no bailen */
+  min-height: 90px; /* Altura fija para la cabecera */
+  margin-bottom: 1.5rem;
+}
+
+.list-title-area h2 {
+  color: var(--color-verde1);
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.list-title-area p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-gris);
+}
+
+.btn-add-main {
+  background-color: var(--color-verde1);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  white-space: nowrap;
+  min-width: 180px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-add-main:hover {
+  background-color: var(--color-verde2);
+  transform: translateY(-1px);
+}
+
+.icon-empty-state {
+    font-size: 3rem;
+}
+
+.titulo-panel {
+  color: var(--color-verde1);
+}
+
+.badge-fecha {
+  background-color: var(--color-amarillo);
+  color: black;
+}
+
+.contenedor-principal {
+  min-height: 80vh;
+}

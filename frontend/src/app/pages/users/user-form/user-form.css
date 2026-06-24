@@ -1,0 +1,143 @@
+.wp-form-container {
+    background-color: white;
+    padding: 5px 40px;
+    color: black;
+    min-height: 100vh;
+}
+
+.wp-form-container h2 {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 25px;
+    color: var(--color-verde1); 
+}
+
+.wp-form {
+    max-width: 800px;
+    background-color: transparent;
+}
+
+.input-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-wrapper input,
+.input-wrapper select,
+.input-wrapper textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 4px 8px;
+    font-size: 14px;
+    line-height: 2;
+    color: black;
+    background-color: white;
+    border: 1px solid var(--color-gris);
+    border-radius: 8px;
+    box-shadow: 0 0 0 transparent;
+    transition: border-color 0.1s ease-in-out;
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus,
+.input-wrapper textarea:focus {
+    border-color: var(--color-verde1); 
+    box-shadow: 0 0 0 1px var(--color-verde1);
+    outline: none;
+}
+
+.error-text {
+    color: #d63638; 
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.form-actions {
+    display: flex; 
+    align-items: center; 
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #dcdcde; 
+}
+
+.wp-button {
+    background-color: var(--color-verde1);
+    color: white;
+    border: 1px solid var(--color-verde1);
+    border-radius: 3px;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 2.15;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.wp-button:hover {
+    background-color: var(--color-verde2);
+    border-color: var(--color-verde2);
+}
+
+
+.wp-button:disabled {
+    background-color: #a7d0a1;
+    border-color: #a7d0a1;
+    cursor: not-allowed;
+}
+
+.form-row {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+.form-row label {
+  width: 180px;
+  font-weight: 600;
+  font-size: 14px;
+  padding-top: 5px;
+  color: black;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #dcdcde;
+  margin-left: 180px;
+}
+
+
+@media (max-width: 712px) {
+  
+  .wp-form-container {
+    padding: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 18px;
+  }
+
+  .form-row label,
+  legend {
+    width: 100%;
+    margin-bottom: 6px;
+    padding-top: 0;
+  }
+
+  .input-wrapper input,
+  .input-wrapper select,
+  .input-wrapper textarea,
+  .image-group input {
+    max-width: 100%;
+  }
+
+  .form-actions {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+}

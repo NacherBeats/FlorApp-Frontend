@@ -1,0 +1,157 @@
+/* --- Estados Iniciales (Escritorio) --- */
+.d-block-mobile {
+    display: none;
+}
+
+.btn-actions-tablet {
+    display: none;
+}
+
+.btn-actions-desktop {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.filtro-wrapper {
+    flex-wrap: wrap;
+}
+
+/* Limitador de texto avanzado para evitar roturas de tabla */
+.col-mensaje-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+}
+
+/* --- MEDIA QUERY 1: Comportamiento Tableta (577px a 992px) --- */
+@media (max-width: 992px) and (min-width: 577px) {
+    .list-header {
+        min-height: auto;
+        margin-bottom: 2rem;
+    }
+
+.btn-actions-desktop {
+    display: none;
+}
+
+  /* Activación de botones redondos con iconos */
+.btn-actions-tablet {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.btn-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    padding: 0;
+    font-size: 1.1rem;
+}
+
+.btn-icon:hover {
+    transform: scale(1.1);
+}
+
+  /* Paleta cromática idéntica a la de plantas */
+.icon-read {
+    background-color: var(--color-verde-pastel);
+    color: var(--color-verde1);
+}
+
+.icon-reply {
+    background-color: var(--color-amarillo-pastel);
+    color: #b58900;
+}
+}
+
+/* --- MEDIA QUERY 2: Comportamiento Móvil Extremo (< 700px) --- */
+@media (max-width: 700px) {
+    .list-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+        min-height: auto;
+    }
+
+.d-none-mobile {
+    display: none !important;
+}
+
+  /* Despliegue de cuadrícula para Tarjetas */
+.d-block-mobile {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-bottom: 30px;
+}
+
+.plant-mobile-card {
+    background-color: white;
+    border-radius: 24px; 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e2e8f0;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.card-content h3 {
+    color: var(--color-verde1);
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+.scientific-name {
+    color: var(--color-gris);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    word-break: break-all;
+}
+
+.mensaje-preview-box {
+    background-color: #f8fafc;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: #475569;
+    word-break: break-word;
+    margin-bottom: 15px;
+}
+
+  /* Botones apilables al 100% de ancho */
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.card-actions .btn {
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.content-empty-mobile {
+    border-radius: 24px;
+    padding: 40px;
+}
+}

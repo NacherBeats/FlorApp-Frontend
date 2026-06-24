@@ -1,0 +1,39 @@
+/* Contenedor principal */
+.contact-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: white;
+  border: 1px solid var(--color-gris);
+}
+
+.text-forest {
+  color: var(--color-verde1);
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-verde-pastel);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.custom-input {
+  border: 1px solid var(--color-gris);
+  border-radius: 8px;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.error-text {
+  color: #d63638;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.custom-input:focus {
+  border-color: var(--color-verde1);
+  box-shadow: 0 0 0 1px var(--color-verde1);
+  outline: none;
+}
+
+.form-label {
+  color: #495057;
+  font-size: 0.95rem;
+}

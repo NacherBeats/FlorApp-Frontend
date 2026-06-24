@@ -1,0 +1,122 @@
+<section class="docente-container animate__animated animate__fadeIn">
+
+  <header class="list-header">
+    <div class="list-title-area">
+      <h2>Mis Fichas de Flora</h2>
+      <p>Gestiona tus fichas registradas en FlorApp.</p>
+    </div>
+    <button class="btn-add-main" routerLink="/docentes/nueva-planta">
+      <i class="bi bi-plus-circle-fill me-2"></i> Nueva Ficha
+    </button>
+  </header>
+
+  <!-- ── TABLA: Desktop y Tablet ── -->
+  <div class="table-card shadow-sm d-none-mobile">
+    <table class="table table-hover mb-0">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Nombre Común</th>
+          <th class="d-none-tablet">Nombre Científico</th>
+          <th class="d-none-tablet">Categoría</th>
+          <th class="d-none-tablet">Descripción</th>
+          <th class="text-end px-4">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (planta of misPlantas; track planta.id) {
+          <tr>
+            <td>
+              <img
+                [src]="planta.imagenes[0]?.url"
+                class="rounded"
+                width="50"
+                height="50"
+                style="object-fit: cover"
+              />
+            </td>
+            <td class="fw-bold text-dark">{{ planta.nombre_comun }}</td>
+            <td class="fst-italic d-none-tablet">{{ planta.nombre_cientifico }}</td>
+            <td class="d-none-tablet">
+              <span class="badge-category">{{ planta.categoria_detalle?.categoria }}</span>
+            </td>
+            <td class="text-muted small text-truncate d-none-tablet"
+                style="max-width: 180px;"
+                [title]="planta.descripcion">
+              {{ planta.descripcion || 'Sin descripción' }}
+            </td>
+            <td class="text-end px-4">
+
+              <!-- Desktop -->
+              <div class="btn-actions-desktop">
+                <button class="btn etiqueta etiqueta-verde me-2"
+                        [routerLink]="['/docentes/editar-planta', planta.id]">
+                  Actualizar
+                </button>
+                <button class="btn etiqueta etiqueta-salmon"
+                        (click)="eliminarFicha(planta.id)">
+                  Borrar
+                </button>
+              </div>
+
+              <!-- Tablet: íconos -->
+              <div class="btn-actions-tablet">
+                <button class="btn-icon icon-edit"
+                        [routerLink]="['/docentes/editar-planta', planta.id]"
+                        title="Actualizar">
+                  <img src="../../../public/iconos/lapiz.png" alt="Editar" class="tablet-icon-img" />
+                </button>
+                <button class="btn-icon icon-delete"
+                        (click)="eliminarFicha(planta.id)"
+                        title="Borrar">
+                  <img src="../../../public/iconos/eliminar.png" alt="Borrar" class="tablet-icon-img" />
+                </button>
+              </div>
+
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="6" class="text-center py-5">
+              <i class="bi bi-tree text-muted opacity-25 icon-empty-state"></i>
+              <p class="mt-3 text-muted">No has registrado fichas aún.</p>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── CARDS: Mobile ── -->
+  <div class="cards-mobile-container d-block-mobile">
+    @for (planta of misPlantas; track planta.id) {
+      <div class="plant-mobile-card">
+        <div class="card-image-wrapper">
+          <img [src]="planta.imagenes[0]?.url" alt="Imagen de {{ planta.nombre_comun }}" />
+        </div>
+        <div class="card-content">
+          <h3>{{ planta.nombre_comun }}</h3>
+          <p class="scientific-name">{{ planta.nombre_cientifico }}</p>
+          <p class="category-name">{{ planta.categoria_detalle?.categoria || 'Sin categoría' }}</p>
+          <p class="text-muted description-mobile">{{ planta.descripcion || 'Sin descripción' }}</p>
+          <div class="card-actions">
+            <button class="btn etiqueta etiqueta-verde"
+                    [routerLink]="['/docentes/editar-planta', planta.id]">
+              Actualizar
+            </button>
+            <button class="btn etiqueta etiqueta-salmon"
+                    (click)="eliminarFicha(planta.id)">
+              Borrar
+            </button>
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <div class="text-center py-5 bg-white rounded shadow-sm content-empty-mobile">
+        <i class="bi bi-tree text-muted opacity-25 icon-empty-state"></i>
+        <p class="mt-3 text-muted">No has registrado fichas aún.</p>
+      </div>
+    }
+  </div>
+
+</section>

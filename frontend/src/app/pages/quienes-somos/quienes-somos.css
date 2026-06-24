@@ -1,0 +1,15 @@
+.quienes-section {
+  background-color: #f8f9fa;
+  min-height: 60vh;
+  border-radius: 10px;
+  margin: 2rem;
+  padding: 2rem;
+}
+
+.titulo {
+  color: var(--color-verde1);
+  font-weight: 600;
+  border-bottom: 2px solid #a3b18a;
+  display: inline-block;
+  padding-bottom: 5px;
+}

@@ -1,0 +1,90 @@
+<div [class.docente-padding]="esDocente" class="wp-form-container">
+  <h2>{{ isEditMode ? 'Actualizar Planta' : 'Añadir Nueva Planta' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="wp-form">
+    <div class="form-row">
+      <label>Nombre Común</label>
+      <div class="input-wrapper">
+        <input type="text" formControlName="nombre_comun" />
+        @if (hasError('nombre_comun', 'required')) {
+          <small class="error-text">Campo obligatorio</small>
+        }
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label>Nombre Científico</label>
+      <div class="input-wrapper">
+        <input type="text" formControlName="nombre_cientifico" />
+        @if (hasError('nombre_cientifico', 'pattern')) {
+          <small class="error-text">Debe ser "Género especie"</small>
+        }
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label>Categoría</label>
+      <div class="input-wrapper">
+        <select formControlName="categoria">
+          <option [ngValue]="null" disabled>Seleccione una categoría...</option>
+          @for (cat of categorias; track cat.id) {
+            <option [value]="cat.id">{{ cat.categoria }}</option>
+          }
+        </select>
+        @if (hasError('categoria', 'required')) {
+          <small class="error-text">Seleccione una categoría</small>
+        }
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label>Descripción</label>
+      <div class="input-wrapper">
+        <textarea formControlName="descripcion"></textarea>
+        @if (hasError('descripcion', 'required')) {
+          <small class="error-text">Campo obligatorio</small>
+        }
+      </div>
+    </div>
+
+    <fieldset formArrayName="imagenes">
+      <legend>URLs de Imágenes</legend>
+
+      <div class="image-list">
+        @for (imagenCtrl of imagenes.controls; track $index) {
+          <div [formGroupName]="$index" class="image-group">
+            <input type="text" formControlName="url" placeholder="https://ejemplo.com/foto.jpg" />
+
+            <button  type="button"  class="btn-cancelar"  (click)="removeImagen($index)"  [disabled]="imagenes.length === 1">
+              Eliminar
+            </button>
+          </div>
+
+          @if (imagenCtrl.get('url')?.hasError('invalidUrl') && imagenCtrl.get('url')?.touched) {
+            <small class="error-text">URL inválida.</small>
+          }
+          @if (
+            imagenCtrl.get('url')?.hasError('invalidExtension') && imagenCtrl.get('url')?.touched
+          ) {
+            <small class="error-text">Extensión no permitida.</small>
+          }
+        }
+
+        <button type="button" class="btn-secondary btn-add-url" (click)="addImagen()" [disabled]="imagenes.length >= maxImages">
+          + Añadir otra URL
+        </button>
+      </div>
+    </fieldset>
+
+    <div class="form-actions">
+      <button type="submit" class="btn etiqueta etiqueta-verde me-2">
+        @if (submitStatus === 'loading') {
+          Guardando...
+        } @else {
+          Guardar
+        }
+      </button>
+      <button class="btn etiqueta etiqueta-salmon" (click)="onReset()">Cancelar</button>
+    </div>
+  </form>
+</div>

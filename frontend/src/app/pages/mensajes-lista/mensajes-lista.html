@@ -1,0 +1,148 @@
+<div class="mensajes-container animate__animated animate__fadeIn">
+  <header class="list-header">
+    <div class="list-title-area">
+      <h2>Mensajes</h2>
+      <p>Consultas recibidas desde el formulario de contacto.</p>
+    </div>
+  </header>
+
+  <div class="d-flex gap-2 mb-4 filtro-wrapper">
+    <button
+      class="btn etiqueta etiqueta-gris"
+      [class.active]="filtro() === 'todos'"
+      (click)="setFiltro('todos')"
+    >
+      Todos
+    </button>
+    <button
+      class="btn etiqueta etiqueta-verde"
+      [class.active]="filtro() === 'leidos'"
+      (click)="setFiltro('leidos')"
+    >
+      Leídos
+    </button>
+    <button
+      class="btn etiqueta etiqueta-salmon"
+      [class.active]="filtro() === 'respondidos'"
+      (click)="setFiltro('respondidos')"
+    >
+      Respondidos
+    </button>
+  </div>
+
+  <div class="table-card shadow-sm d-none-mobile">
+    <table class="table table-hover mb-0">
+      <thead>
+        <tr>
+          <th>Remitente</th>
+          <th class="d-none-tablet">Email</th>
+          <th>Mensaje</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+          <th class="text-end px-4">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (mensaje of mensajesFiltrados(); track mensaje.id) {
+          <tr [class.fw-bold]="!mensaje.leido" [class.text-muted]="mensaje.leido">
+            <td class="fw-bold">{{ mensaje.nombre }}</td>
+            <td class="d-none-tablet text-muted">{{ mensaje.email }}</td>
+            <td>
+              <div class="col-mensaje-text">{{ mensaje.mensaje }}</div>
+            </td>
+            <td>{{ mensaje.fecha_envio | date: 'dd/MM/yyyy HH:mm' }}</td>
+            <td>
+              @if (mensaje.respondido) {
+                <span class="badge bg-success">Respondido</span>
+              } @else if (mensaje.leido) {
+                <span class="badge bg-secondary">Leído</span>
+              } @else {
+                <span class="badge bg-warning text-dark">Nuevo</span>
+              }
+            </td>
+            <td class="text-end px-4">
+              <div class="btn-actions-desktop">
+                @if (!mensaje.leido) {
+                  <button class="btn etiqueta etiqueta-verde me-2" (click)="marcarLeido(mensaje.id)">
+                    Marcar leído
+                  </button>
+                }
+                @if (!mensaje.respondido) {
+                  <button class="btn etiqueta etiqueta-amarilla" (click)="marcarRespondido(mensaje.id)">
+                    Marcar respondido
+                  </button>
+                }
+              </div>
+
+              <div class="btn-actions-tablet">
+                @if (!mensaje.leido) {
+                  <button class="btn-icon icon-read me-2" (click)="marcarLeido(mensaje.id)" title="Marcar leído">
+                    <i class="bi bi-check2"></i>
+                  </button>
+                }
+                @if (!mensaje.respondido) {
+                  <button class="btn-icon icon-reply" (click)="marcarRespondido(mensaje.id)" title="Marcar respondido">
+                    <i class="bi bi-envelope-check"></i>
+                  </button>
+                }
+              </div>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="6" class="text-center py-5">
+              <div class="py-4">
+                <i class="bi bi-envelope text-muted opacity-25" style="font-size: 3rem"></i>
+                <p class="mt-3 text-muted">No hay mensajes en esta categoría.</p>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cards-mobile-container d-block-mobile">
+    @for (mensaje of mensajesFiltrados(); track mensaje.id) {
+      <div class="plant-mobile-card shadow-sm">
+        <div class="card-content">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <h3>{{ mensaje.nombre }}</h3>
+            <span class="text-muted small">{{ mensaje.fecha_envio | date: 'dd/MM/yyyy' }}</span>
+          </div>
+          <p class="scientific-name">{{ mensaje.email }}</p>
+          
+          <div class="mb-3">
+            @if (mensaje.respondido) {
+              <span class="badge bg-success">Respondido</span>
+            } @else if (mensaje.leido) {
+              <span class="badge bg-secondary">Leído</span>
+            } @else {
+              <span class="badge bg-warning text-dark">Nuevo</span>
+            }
+          </div>
+
+          <p class="mensaje-preview-box">{{ mensaje.mensaje }}</p>
+          
+          <div class="card-actions">
+            @if (!mensaje.leido) {
+              <button class="btn etiqueta etiqueta-verde w-100 py-2" (click)="marcarLeido(mensaje.id)">
+                Marcar leído
+              </button>
+            }
+            @if (!mensaje.respondido) {
+              <button class="btn etiqueta etiqueta-amarilla w-100 py-2" (click)="marcarRespondido(mensaje.id)">
+                Marcar respondido
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <div class="text-center py-5 bg-white rounded shadow-sm content-empty-mobile">
+        <i class="bi bi-envelope text-muted opacity-25" style="font-size: 3rem"></i>
+        <p class="mt-3 text-muted">Aún no hay mensajes cargados en esta categoría.</p>
+      </div>
+    }
+  </div>
+</div>

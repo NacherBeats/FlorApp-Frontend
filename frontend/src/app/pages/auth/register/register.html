@@ -1,0 +1,110 @@
+<div class="login-container">
+  <div class="login-card">
+    <h1 class="titulo">FlorApp</h1>
+
+    <p class="texto">¡Creá tu cuenta para comenzar!</p>
+
+    <form [formGroup]="form" (ngSubmit)="registrar()">
+
+      <!-- EMAIL -->
+      <input
+        type="email"
+        class="form-control custom-input"
+        placeholder="Correo electrónico"
+        formControlName="email"
+      />
+
+      @if (form.get('email')?.invalid && form.get('email')?.touched) {
+        <div class="error">
+          @if (form.get('email')?.errors?.['required']) {
+            <small>El correo es obligatorio</small>
+          }
+          @if (form.get('email')?.errors?.['email']) {
+            <small>El formato del mail debe ser válido</small>
+          }
+        </div>
+      }
+
+      <!-- NOMBRE -->
+      <input
+        type="text"
+        class="form-control custom-input"
+        placeholder="Nombre"
+        formControlName="nombre"
+      />
+
+      @if (form.get('nombre')?.invalid && form.get('nombre')?.touched) {
+        <div class="error">
+          <small>El nombre es obligatorio</small>
+        </div>
+      }
+
+      <!-- APELLIDO -->
+      <input
+        type="text"
+        class="form-control custom-input"
+        placeholder="Apellido"
+        formControlName="apellido"
+      />
+
+      @if (form.get('apellido')?.invalid && form.get('apellido')?.touched) {
+        <div class="error">
+          <small>El apellido es obligatorio</small>
+        </div>
+      }
+
+      <!-- USERNAME -->
+      <input
+        type="text"
+        class="form-control custom-input"
+        placeholder="Usuario"
+        formControlName="username"
+      />
+
+      @if (form.get('username')?.invalid && form.get('username')?.touched) {
+        <div class="error">
+          <small>El usuario es obligatorio</small>
+        </div>
+      }
+
+      <!-- PASSWORD -->
+      <input
+        type="password"
+        class="form-control custom-input"
+        placeholder="Contraseña"
+        formControlName="password"
+      />
+
+      @if (form.get('password')?.invalid && form.get('password')?.touched) {
+        <div class="error">
+          @if (form.get('password')?.errors?.['required']) {
+            <small>La contraseña es obligatoria</small>
+          }
+          @if (form.get('password')?.errors?.['minlength']) {
+            <small>Mínimo 6 caracteres</small>
+          }
+        </div>
+      }
+
+      <!-- CONFIMACION PASSWORD -->
+      <input
+        type="password"
+        class="form-control custom-input"
+        placeholder="Confirmar contraseña"
+        formControlName="confirmPassword"
+      />
+
+      @if (form.get('confirmPassword')?.touched && form.hasError('passwordMismatch')) {
+        <div class="error">
+          <small>Las contraseñas no coinciden</small>
+        </div>
+      }
+
+      <button type="submit">Registrarse</button>
+    </form>
+
+    <p class="extra">
+      ¿Ya tenés cuenta? <a routerLink="/login">Ingresar</a>
+    </p>
+  </div>
+</div>

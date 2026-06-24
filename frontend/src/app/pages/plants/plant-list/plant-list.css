@@ -1,0 +1,144 @@
+.d-block-mobile {
+  display: none;
+}
+
+.btn-actions-tablet {
+  display: none;
+}
+
+.btn-actions-desktop {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 992px) and (min-width: 577px) {
+  .list-header {
+    min-height: auto;
+    margin-bottom: 2rem;
+  }
+
+  .btn-actions-desktop {
+    display: none;
+  }
+
+  .btn-actions-tablet {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .btn-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    padding: 0;
+  }
+
+  .tablet-icon-img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+  }
+
+  .btn-icon:hover {
+    transform: scale(1.1);
+  }
+
+  .icon-edit {
+    background-color: #cae5c1;
+  }
+
+  .icon-delete {
+    background-color: #f4d3bb;
+  }
+}
+
+@media (max-width: 700px) {
+  .list-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    min-height: auto;
+  }
+
+  .btn-add-main {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .d-none-mobile {
+    display: none !important;
+  }
+
+  .d-block-mobile {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-bottom: 30px;
+  }
+
+  .plant-mobile-card {
+    background-color: white;
+    border-radius: 24px; 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-image-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+  }
+
+  .card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 20px;
+    text-align: left;
+  }
+
+  .card-content h3 {
+    color: var(--color-verde1);
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+  }
+
+  .scientific-name {
+    font-style: italic;
+    color: black;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .category-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+  }
+  
+  .card-actions .btn {
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .content-empty-mobile {
+    border-radius: 24px;
+  }
+}

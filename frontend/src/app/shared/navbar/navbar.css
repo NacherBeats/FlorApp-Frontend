@@ -1,0 +1,46 @@
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-nav {
+  height: 35px;
+  width: auto;
+  align-self: center;
+}
+
+.nav-link {
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+}
+
+a {
+  text-decoration: none;
+  list-style: none;
+}
+
+.btn {
+  color: white !important;
+}
+
+.btn-home {
+  background-color: var(--color-amarillo);
+}
+
+.btn-quienes-somos {
+  background-color: var(--color-celeste);
+}
+
+.btn-galeria {
+  background-color: var(--color-violeta);
+}
+
+.btn-contacto {
+  background-color: var(--color-naranja);
+}
+
+.btn-login {
+  background-color: var(--color-verde2);
+}

@@ -1,0 +1,111 @@
+.login-container {
+  height: 100vh;
+
+  background: linear-gradient(
+    rgba(0,0,0,0.4),
+    rgba(0,0,0,0.4)
+  ),
+  url('../../../../public/fotos/loginHero.webp');
+
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  padding: 80px 40px 80px 40px;
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  width: 600px;
+  margin-top: 50px;
+  text-align: center;
+  color: white;
+
+}
+
+.login-card h1 {
+  margin-bottom: 10px;
+  color: var(--color-verde1);
+}
+
+.custom-input {
+  border: 1px solid var(--color-fondo);
+  border-radius: 8px;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: var(--color-verde1);
+  box-shadow: 0 0 0 0.25rem rgba(163, 177, 138, 0.25);
+  outline: none;
+}
+
+.texto {
+  color: white;
+  font-weight: normal;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+
+  margin-bottom: 15px;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 15px;
+}
+
+button {
+  justify-content: center;
+  width: 100%;
+  border: none;
+  display: inline-flex;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bolder;
+  cursor: pointer;
+  background-color: var(--color-verde1);
+}
+
+button:hover {
+  background-color: #295c1f;
+  color: white;
+}
+
+.extra {
+  color: #a3b18a;
+  font-weight: bold;
+  font-style: italic;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.extra a {
+  color: var(--color-naranja);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.extra a:hover {
+  color: var(--color-verde1);
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+small {
+  font-size: 13px;
+}

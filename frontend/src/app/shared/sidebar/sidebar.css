@@ -1,0 +1,62 @@
+.sidebar-contenedor {
+  background-color: var(--color-verde1);
+  width: 280px;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 991.98px) {
+  .sidebar-contenedor {
+    width: 85px;
+    padding: 1rem 0.5rem !important;
+  }
+
+  .perfil-wrapper,
+  .divisor,
+  .texto-perfil,
+  .fw-medium,
+  .nav-item p,
+  .btn-texto {
+    display: none !important;
+  }
+
+  .nav {
+    margin-top: 30px !important;
+  }
+
+  .nav-link {
+    justify-content: center !important;
+    padding: 1rem 0 !important;
+  }
+
+  .sidebar-contenedor .ms-auto {
+    display: none !important;
+  }
+}
+
+.texto-perfil {
+  letter-spacing: 2px;
+  font-size: 22px;
+}
+
+.active-link {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-left: 5px solid var(--color-amarillo);
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.text-accent-yellow {
+  color: var(--color-amarillo) !important;
+}
+
+.text-accent-blue {
+  color: var(--color-celeste) !important;
+}
+
+.transition-all {
+  transition: all 0.2s ease-in-out;
+}

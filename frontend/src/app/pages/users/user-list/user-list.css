@@ -1,0 +1,108 @@
+.d-block-mobile {
+  display: none;
+}
+
+.btn-actions-tablet {
+  display: none;
+}
+
+.btn-actions-desktop {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 992px) and (min-width: 577px) {
+  .btn-actions-desktop {
+    display: none;
+  }
+  .btn-actions-tablet {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .btn-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 0;
+  }
+
+  .btn-icon:hover {
+    transform: scale(1.1);
+  }
+
+  .icon-edit {
+    background-color: var(--color-verde-pastel);
+  }
+  .icon-delete {
+    background-color: var(--color-salmon);
+  }
+
+  .tablet-icon-img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 700px) {
+  .list-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .btn-add-main {
+    width: 100%;
+  }
+
+  .d-none-mobile {
+    display: none !important;
+  }
+
+  .d-block-mobile {
+    display: block !important;
+  }
+
+  .estilo-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+
+  .card-content h3 {
+    color: black;
+    font-family: Montserrat;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+  }
+
+  .scientific-name {
+    color: var(--color-gris);
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+  }
+
+  .category-name {
+    margin-bottom: 15px;
+    color: black;
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .card-actions .btn {
+    justify-content: center;
+  }
+}

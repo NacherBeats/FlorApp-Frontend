@@ -1,0 +1,80 @@
+<div class="contact-container shadow-sm p-4 rounded-4">
+  <h2 class="h4 mb-4 text-forest">Contacto</h2>
+
+  <form [formGroup]="form" (ngSubmit)="enviarConsulta()">
+
+    <div class="mb-3">
+    <label for="nombre" class="form-label fw-medium">Tu nombre</label>
+    <input
+      type="text"
+      class="form-control custom-input"
+      id="nombre"
+      placeholder="Nombre completo"
+      formControlName="nombre"
+    />
+    @if (form.get('nombre')?.invalid && form.get('nombre')?.touched) {
+      <div class="error">
+        <small class="error-text">El nombre es obligatorio</small>
+      </div>
+    }
+  </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label fw-medium">Tu correo electrónico</label>
+      <input
+        type="email"
+        class="form-control custom-input"
+        id="email"
+        placeholder="ejemplo@correo.com"
+        formControlName="email"
+      />
+
+      @if (form.get('email')?.invalid && form.get('email')?.touched) {
+        <div class="error">
+          @if (form.get('email')?.errors?.['required']) {
+            <small class="error-text"> El correo es obligatorio </small>
+          }
+
+          @if (form.get('email')?.errors?.['email']) {
+            <small class="error-text"> El formato del correo debe ser válido </small>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="mensaje" class="form-label fw-medium">Dejanos tu inquietud</label>
+      <textarea
+        class="form-control custom-input"
+        id="mensaje"
+        rows="4"
+        placeholder="¿En qué podemos ayudarte?"
+        formControlName="mensaje"
+      ></textarea>
+      @if (form.get('mensaje')?.invalid && form.get('mensaje')?.touched) {
+        <div class="error">
+          @if (form.get('mensaje')?.errors?.['required']) {
+            <small class="error-text"> El mensaje es obligatorio </small>
+          }
+
+          @if (form.get('mensaje')?.errors?.['minlength']) {
+            <small class="error-text"> El mensaje requiere al menos 10 caracteres </small>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-verde px-5">
+        Enviar
+      </button>
+    </div>
+  </form>
+
+  @if (enviado) {
+  <div class="alert alert-success mt-3 text-center">
+    ¡Mensaje enviado! Gracias por aporte.
+  </div>
+  }
+
+</div>

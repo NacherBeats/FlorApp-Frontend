@@ -1,0 +1,51 @@
+<div class="login-container">
+  <div class="login-card">
+    <h1 class="titulo">FlorApp</h1>
+
+    <p class="texto">¡Ingresá para explorar la naturaleza!</p>
+
+    <form [formGroup]="form" (ngSubmit)="iniciarSesion()">
+      <input
+        type="email"
+        class="form-control custom-input"
+        placeholder="Correo electrónico"
+        formControlName="email"
+      />
+
+      @if (form.get('email')?.invalid && form.get('email')?.touched) {
+        <div class="error">
+          @if (form.get('email')?.errors?.['required']) {
+            <small> El correo es obligatorio </small>
+          }
+
+          @if (form.get('email')?.errors?.['email']) {
+            <small> El formato del mail debe ser válido </small>
+          }
+        </div>
+      }
+
+      <input
+        type="password"
+        class="form-control custom-input"
+        placeholder="Contraseña"
+        formControlName="password"
+      />
+
+      @if (form.get('password')?.invalid && form.get('password')?.touched) {
+        <div class="error">
+          @if (form.get('password')?.errors?.['required']) {
+            <small> La contraseña es obligatoria </small>
+          }
+
+          @if (form.get('password')?.errors?.['minlength']) {
+            <small> La contraseña requiere como mínimo 6 caracteres </small>
+          }
+        </div>
+      }
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <p class="extra">¿Todavía no tenes cuenta? <a routerLink="/register">¡Registrate ahora!</a></p>
+  </div>
+</div>

@@ -1,0 +1,223 @@
+.wp-form-container {
+  padding: 5px 40px;
+  color: black;
+  min-height: 100vh;
+}
+
+.docente-padding {
+  padding: 100px 50px 50px 150px;
+}
+
+.wp-form-container h2 {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 25px;
+  color: var(--color-verde1)
+}
+
+.wp-form {
+  max-width: 800px;
+  background-color: transparent;
+}
+
+.form-row {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+.form-row label,
+legend {
+  width: 180px;
+  font-weight: 600;
+  font-size: 14px;
+  padding-top: 5px;
+  color: black;
+}
+
+.input-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper input,
+.input-wrapper select,
+.input-wrapper textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 2;
+  color: #32373c;
+  background-color: white;
+  border: 1px solid var(--color-gris);
+  border-radius: 8px;
+  box-shadow: 0 0 0 transparent;
+  transition: border-color 0.1s ease-in-out;
+}
+
+.input-wrapper textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus,
+.input-wrapper textarea:focus {
+  border-color: var(--color-verde1);
+  box-shadow: 0 0 0 1px var(--color-verde1);
+  outline: none;
+}
+
+.error-text {
+  color: #d63638;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.image-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.image-group input[type='text'] {
+  width: 100%;
+  max-width: 350px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid var(--color-gris);
+  border-radius: 8px;
+}
+
+.image-group input[type='text']:focus {
+  border-color: var(--color-verde1);
+  box-shadow: 0 0 0 1px var(--color-verde1);
+  outline: none;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #2271b1;
+  border: 1px solid #2271b1;
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  line-height: 2;
+}
+
+.btn-add-url {
+  align-self: flex-start;
+  margin-top: 5px;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-gris);
+  margin-left: 180px;
+}
+
+.wp-button {
+  background-color: var(--color-verde1);
+  color: #fff;
+  border: 1px solid var(--color-verde1);
+  border-radius: 3px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 2.15;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.wp-button:hover:not(:disabled) {
+  background-color: var(--color-verde1);
+  border-color: var(--color-verde1);
+}
+
+.wp-button:disabled {
+  background-color: var(--color-verde-pastel);
+  border-color: #a7d0a1;
+  cursor: not-allowed;
+}
+
+.cancel-link {
+  margin-left: 20px;
+  color: #2271b1;
+  text-decoration: none;
+  font-size: 13px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.cancel-link:hover {
+  color: #135e96;
+  text-decoration: underline;
+}
+
+@media (max-width: 820px) {
+  .docente-padding {
+    padding: 30px 20px;
+  }
+  
+  .wp-form-container {
+    padding: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 18px;
+  }
+
+  .form-row label,
+  legend {
+    width: 100%;
+    margin-bottom: 6px;
+    padding-top: 0;
+  }
+
+  fieldset {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-wrapper input[type='text'],
+  .input-wrapper select,
+  .input-wrapper textarea,
+  .image-group input[type='text'] {
+    max-width: 100%;
+  }
+
+  .image-group {
+    width: 100%;
+  }
+
+  .form-actions {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+}
