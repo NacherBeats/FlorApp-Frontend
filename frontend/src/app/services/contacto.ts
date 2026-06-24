@@ -9,7 +9,7 @@ import { Contacto } from '../interfaces/contacto';
   providedIn: 'root'
 })
 export class ContactoService {
-  private apiUrl = 'http://localhost:8000/api/interacciones/';
+  private apiUrl = 'https://florapp-backend-n9bz.onrender.com/api/interacciones/';
 
   constructor(private http: HttpClient) {}
 

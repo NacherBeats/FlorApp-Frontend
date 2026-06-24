@@ -8,7 +8,7 @@ import { Especie } from '../interfaces/especie';
 
 @Injectable({ providedIn: 'root' })
 export class PlantasServicio {
-  private API = 'http://localhost:8000/api/flora';
+  private API = 'https://florapp-backend-n9bz.onrender.com/api/flora';
 
   constructor(private http: HttpClient) {}
 

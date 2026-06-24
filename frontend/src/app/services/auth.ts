@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class AuthService {
-  private apiUrl = 'http://127.0.0.1:8000/api/usuarios/';
+  private apiUrl = 'https://florapp-backend-n9bz.onrender.com/api/usuarios/';
   
   constructor(private http: HttpClient) {}
 
